@@ -76,23 +76,23 @@ public class HelloApplication extends Application {
                         actiontarget.setFill(Color.FIREBRICK);
                         actiontarget.setText("Password too short");
                     }
-                    if(!pw.matches("(?=.*[0-9]).*")) {
-                        actiontarget.setFill(Color.FIREBRICK);
-                        actiontarget.setText("Password must contain number");
-                    }
-                    if(!pw.matches("(?=.*[a-zA-Z]).*") ) {
-                        actiontarget.setFill(Color.FIREBRICK);
-                        actiontarget.setText("Password must contain letter");
-                    }
-                    if(!pw.matches("(?=.*[*^&@!.]).*") ) {
-                        actiontarget.setFill(Color.FIREBRICK);
-                        actiontarget.setText("Password must contain special character");
-                    }
+                    else   if(!pw.matches("(?=.*[0-9]).*")) {
+                            actiontarget.setFill(Color.FIREBRICK);
+                            actiontarget.setText("Password must contain number");
+                        }
+                            else if(!pw.matches("(?=.*[a-zA-Z]).*") ) {
+                                actiontarget.setFill(Color.FIREBRICK);
+                                actiontarget.setText("Password must contain letter");
+                            }
+                                else if(!pw.matches("(?=.*[*^&@!.]).*") ) {
+                                    actiontarget.setFill(Color.FIREBRICK);
+                                    actiontarget.setText("Password must contain special character");
+                                }
 
-                    else {
-                        actiontarget.setFill(Color.FIREBRICK);
-                        actiontarget.setText("Welcome");
-                    }
+                                    else {
+                                        actiontarget.setFill(Color.FIREBRICK);
+                                        actiontarget.setText("Welcome");
+                                    }
 
                 }
                 else {
