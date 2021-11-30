@@ -3,7 +3,6 @@ package com.example.csfx;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -24,87 +23,61 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class HelloApplication extends Application {
-    @Override
-    public void start(Stage primaryStage) throws IOException {
-        GridPane grid = new GridPane();
+public  class HelloApplication extends Application  {
+    public static boolean emailCheck(String email) {
+        return true;
+    }
 
-        grid.setAlignment(Pos.CENTER);
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(25, 25, 25, 25));
+public void start(Stage primaryStage) throws IOException {
+    GridPane grid = new GridPane();
 
-        Text scenetitle = new Text("Enter email and password below");
-        scenetitle.setFont(Font.font("Verdana", FontWeight.NORMAL, 15));
-        grid.add(scenetitle, 0, 0, 2, 1);
+    grid.setAlignment(Pos.CENTER);
+    grid.setHgap(10);
+    grid.setVgap(10);
+    grid.setPadding(new Insets(25, 25, 25, 25));
 
-        Label userName = new Label("Email adress:");
-        grid.add(userName, 0, 1);
+    Text scenetitle = new Text("Enter email and password below");
+    scenetitle.setFont(Font.font("Verdana", FontWeight.NORMAL, 15));
+    grid.add(scenetitle, 0, 0, 2, 1);
 
-        TextField userTextField = new TextField();
-        grid.add(userTextField, 1, 1);
+    Label userName = new Label("Email address:");
+    grid.add(userName, 0, 1);
 
-        Label pw = new Label("Password:");
-        grid.add(pw, 0, 2);
+    TextField userTextField = new TextField();
+    grid.add(userTextField, 1, 1);
 
-        PasswordField pwBox = new PasswordField();
-        grid.add(pwBox, 1, 2);
+    Label pw = new Label("Password:");
+    grid.add(pw, 0, 2);
 
-        Button btn = new Button("Sign in");
-        HBox hbBtn = new HBox(10);
-        hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
-        hbBtn.getChildren().add(btn);
-        grid.add(hbBtn, 1, 4);
+    PasswordField pwBox = new PasswordField();
+    grid.add(pwBox, 1, 2);
 
-        final Text actiontarget = new Text();
-        grid.add(actiontarget, 1, 6);
+    Button btn = new Button("Sign in");
+    HBox hbBtn = new HBox(10);
+    hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
+    hbBtn.getChildren().add(btn);
+    grid.add(hbBtn, 1, 4);
 
-        btn.setOnAction(new EventHandler<ActionEvent>() {
+    final Text actiontarget = new Text();
+    grid.add(actiontarget, 1, 6);
 
-            @Override
-            public void handle(ActionEvent e) {
-                String pw=pwBox.getText();
-                String em=userTextField.getText();
-                Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}");
-                Matcher mat = pattern.matcher(em);
+    btn.setOnAction(new EventHandler<ActionEvent>() {
 
 
-                if (mat.matches()){
-                    actiontarget.setFill(Color.FIREBRICK);
-                    actiontarget.setText("Valid email");
-                    if (pw.length()<7 ){
-                        actiontarget.setFill(Color.FIREBRICK);
-                        actiontarget.setText("Password too short");
-                    }
-                    else   if(!pw.matches("(?=.*[0-9]).*")) {
-                            actiontarget.setFill(Color.FIREBRICK);
-                            actiontarget.setText("Password must contain number");
-                        }
-                            else if(!pw.matches("(?=.*[a-zA-Z]).*") ) {
-                                actiontarget.setFill(Color.FIREBRICK);
-                                actiontarget.setText("Password must contain letter");
-                            }
-                                else if(!pw.matches("(?=.*[*^&@!.]).*") ) {
-                                    actiontarget.setFill(Color.FIREBRICK);
-                                    actiontarget.setText("Password must contain special character");
-                                }
-
-                                    else {
-                                        actiontarget.setFill(Color.FIREBRICK);
-                                        actiontarget.setText("Welcome");
-                                    }
-
-                }
-                else {
-                    actiontarget.setFill(Color.FIREBRICK);
-                    actiontarget.setText("Invalid email");
-                }
-
-            }
+        public void handle(ActionEvent e) {
+            String pw = pwBox.getText();
+            String em = userTextField.getText();
+            Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}");
+            Matcher mat = pattern.matcher(em);
 
 
 
-        });
+        }
+
+
+
+    });
+
 
         Scene scene = new Scene(grid, 400, 400);
         primaryStage.setScene(scene);
@@ -112,6 +85,6 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        Application.launch();
     }
 }
