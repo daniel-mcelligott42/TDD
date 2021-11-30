@@ -10,4 +10,8 @@ public class HelloApplicationTest  {
     public void testEmailCheck() {
         assertFalse(HelloApplication.emailCheck("kdpkd@gmail.com"));
     }
+    @Test
+    public void testPasswordLength(){
+        assertFalseHelloApplication.passwordLength());
+    }
 }

@@ -33,7 +33,11 @@ public  class HelloApplication extends Application  {
         return false;
     }
 
-public void start(Stage primaryStage) throws IOException {
+    public static boolean passwordLength() {
+        return false;
+    }
+
+    public void start(Stage primaryStage) throws IOException {
     GridPane grid = new GridPane();
 
     grid.setAlignment(Pos.CENTER);
