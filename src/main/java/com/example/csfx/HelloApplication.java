@@ -34,11 +34,11 @@ public class HelloApplication extends Application {
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
 
-        Text scenetitle = new Text("Enter username and password below");
+        Text scenetitle = new Text("Enter email and password below");
         scenetitle.setFont(Font.font("Verdana", FontWeight.NORMAL, 15));
         grid.add(scenetitle, 0, 0, 2, 1);
 
-        Label userName = new Label("Username:");
+        Label userName = new Label("Email adress:");
         grid.add(userName, 0, 1);
 
         TextField userTextField = new TextField();
@@ -84,10 +84,16 @@ public class HelloApplication extends Application {
                         actiontarget.setFill(Color.FIREBRICK);
                         actiontarget.setText("Password must contain letter");
                     }
+                    if(!pw.matches("(?=.*[*^&@!.]).*") ) {
+                        actiontarget.setFill(Color.FIREBRICK);
+                        actiontarget.setText("Password must contain special character");
+                    }
+
                     else {
                         actiontarget.setFill(Color.FIREBRICK);
                         actiontarget.setText("Welcome");
                     }
+
                 }
                 else {
                     actiontarget.setFill(Color.FIREBRICK);
