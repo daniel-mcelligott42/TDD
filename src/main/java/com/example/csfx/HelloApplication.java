@@ -76,6 +76,10 @@ public class HelloApplication extends Application {
                         actiontarget.setFill(Color.FIREBRICK);
                         actiontarget.setText("Password too short");
                     }
+                    if(!pw.matches("(?=.*[0-9]).*")) {
+                        actiontarget.setFill(Color.FIREBRICK);
+                        actiontarget.setText("Password must contain number");
+                    }
                     else {
                         actiontarget.setFill(Color.FIREBRICK);
                         actiontarget.setText("Welcome");
