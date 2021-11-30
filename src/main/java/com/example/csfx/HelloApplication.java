@@ -80,6 +80,10 @@ public class HelloApplication extends Application {
                         actiontarget.setFill(Color.FIREBRICK);
                         actiontarget.setText("Password must contain number");
                     }
+                    if(!pw.matches("(?=.*[a-zA-Z]).*") ) {
+                        actiontarget.setFill(Color.FIREBRICK);
+                        actiontarget.setText("Password must contain letter");
+                    }
                     else {
                         actiontarget.setFill(Color.FIREBRICK);
                         actiontarget.setText("Welcome");
