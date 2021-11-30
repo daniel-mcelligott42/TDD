@@ -20,6 +20,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class HelloApplication extends Application {
     @Override
@@ -61,15 +64,32 @@ public class HelloApplication extends Application {
             @Override
             public void handle(ActionEvent e) {
                 String pw=pwBox.getText();
-                if (pw.length()<7 ){
+                String em=userTextField.getText();
+                Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}");
+                Matcher mat = pattern.matcher(em);
+
+
+                if (mat.matches()){
                     actiontarget.setFill(Color.FIREBRICK);
-                    actiontarget.setText("Weak password");
+                    actiontarget.setText("Valid email");
+                    if (pw.length()<7 ){
+                        actiontarget.setFill(Color.FIREBRICK);
+                        actiontarget.setText("Password too short");
+                    }
+                    else {
+                        actiontarget.setFill(Color.FIREBRICK);
+                        actiontarget.setText("Welcome");
+                    }
                 }
                 else {
                     actiontarget.setFill(Color.FIREBRICK);
-                    actiontarget.setText("Welcome");
+                    actiontarget.setText("Invalid email");
                 }
+
             }
+
+
+
         });
 
         Scene scene = new Scene(grid, 400, 400);
