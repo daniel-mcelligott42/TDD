@@ -8,6 +8,6 @@ public class HelloApplicationTest  {
 
     @Test
     public void testEmailCheck() {
-        assertFalse(HelloApplication.emailCheck("kdkd"));
+        assertFalse(HelloApplication.emailCheck("kdkd@gmail.com"));
     }
 }

@@ -25,7 +25,12 @@ import java.util.regex.Pattern;
 
 public  class HelloApplication extends Application  {
     public static boolean emailCheck(String email) {
-        return true;
+        Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}");
+        Matcher matc = pattern.matcher(email);
+        if (matc.matches()){
+            return true;
+        }
+        return false;
     }
 
 public void start(Stage primaryStage) throws IOException {
